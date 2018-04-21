@@ -28,6 +28,15 @@ object MyModule {
     go(0)
   }
 
+  def isSorted[A](a: Array[A], ordered: (A, A) => Boolean): Boolean = {
+    @annotation.tailrec
+    def go(n: Int): Boolean =
+      if (n >= a.length) true
+      else if (!ordered(a(n - 1), a(n))) false
+      else go(n + 1)
+    go(1)
+  }
+
   private def formatResult(msg: String, x: Int, f: Int => Int): String =
     msg.format(x, f(x))
 
@@ -53,5 +62,6 @@ object MyModule {
     println(formatAbs(-42))
     println(formatFactorial(7))
     println(formatFib(5))
+    println(isSorted(Array(1, 2, 6, 5, 5), (x: Int, y: Int) => x <= y))
   }
 }
