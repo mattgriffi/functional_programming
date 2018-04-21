@@ -19,24 +19,25 @@ object MyModule {
     go(1, 0, 1)
   }
 
+  private def formatResult(msg: String, x: Int, f: Int => Int): String =
+    msg.format(x, f(x))
+
+  private def numberSuffix(x: Int): String =
+    if (x % 10 == 1 && x != 11) "st"
+    else if (x % 10 == 2) "nd"
+    else if (x % 10 == 3) "rd"
+    else "th"
+
   private def formatAbs(x: Int): String = {
-    val msg = "The absolute value of %d is %d"
-    msg.format(x, abs(x))
+    formatResult("The absolute value of %d is %d", x, abs)
   }
 
   private def formatFactorial(x: Int): String = {
-    val msg = "The factorial of %d is %d"
-    msg.format(x, factorial(x))
+    formatResult("The factorial of %d is %d", x, factorial)
   }
 
   private def formatFib(x: Int): String = {
-    val msg = "The %d%s Fibonacci number is %d"
-    val end =
-      if (x % 10 == 1 && x != 11) "st"
-      else if (x % 10 == 2) "nd"
-      else if (x % 10 == 3) "rd"
-      else "th"
-    msg.format(x, end, fib(x))
+    formatResult("The %d" + numberSuffix(x) + " Fibonacci number is %d", x, fib)
   }
 
   def main(args: Array[String]): Unit = {
