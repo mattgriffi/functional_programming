@@ -11,6 +11,7 @@ object MyModule {
     go(n, 1)
   }
 
+  /* Exercise 2.1 page 21 */
   def fib(n: Int): Int = {
     @annotation.tailrec
     def go(i: Int, p: Int, c: Int): Int =
@@ -28,6 +29,7 @@ object MyModule {
     go(0)
   }
 
+  /* Exercise 2.2 page 24 */
   def isSorted[A](a: Array[A], ordered: (A, A) => Boolean): Boolean = {
     @annotation.tailrec
     def go(n: Int): Boolean =
