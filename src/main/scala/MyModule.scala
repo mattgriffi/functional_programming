@@ -19,6 +19,15 @@ object MyModule {
     go(1, 0, 1)
   }
 
+  def findFirst[A](a: Array[A], p: A => Boolean): Int = {
+    @annotation.tailrec
+    def go(n: Int): Int =
+      if (n >= a.length) -1
+      else if (p(a(n))) n
+      else go(n + 1)
+    go(0)
+  }
+
   private def formatResult(msg: String, x: Int, f: Int => Int): String =
     msg.format(x, f(x))
 
