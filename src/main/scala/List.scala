@@ -52,4 +52,11 @@ object List {
     case Nil => a2
     case Cons(h, t) => Cons(h, append(t, a2))
   }
+
+  /* Exercise 3.6 page 37 */
+  def init[A](as: List[A]): List[A] = as match {
+    case Nil => Nil
+    case Cons(_, Nil) => Nil
+    case Cons(h, t) => Cons(h, init(t))
+  }
 }
