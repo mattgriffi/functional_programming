@@ -21,6 +21,12 @@ object List {
   /* Exercise 3.2 page 35 */
   def tail[A](as: List[A]): List[A] = as match {
     case Nil => Nil
-    case Cons(_, xs) => xs
+    case Cons(_, t) => t
+  }
+
+  /* Exercise 3.3 page 36 */
+  def setHead[A](as: List[A], a: A): List[A] = as match {
+    case Nil => List(a)
+    case Cons(_, t) => Cons(a, t)
   }
 }
