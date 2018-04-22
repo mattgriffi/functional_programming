@@ -31,6 +31,7 @@ object List {
   }
 
   /* Exercise 3.4 page 36 */
+  @annotation.tailrec
   def drop[A](as: List[A], n: Int): List[A] = as match {
     case Nil => Nil
     case Cons(_, t) =>
@@ -39,6 +40,7 @@ object List {
   }
 
   /* Exercise 3.5 page 36 */
+  @annotation.tailrec
   def dropWhile[A](as: List[A], p: A => Boolean): List[A] = as match {
     case Nil => Nil
     case Cons(h, t) =>
