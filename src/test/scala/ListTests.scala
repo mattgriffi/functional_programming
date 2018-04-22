@@ -48,4 +48,14 @@ class ListTests extends FunSuite {
     assert(List.init(list3) === List(1))
     assert(List.init(list1) === List(1, 2, 3, 4))
   }
+
+  test("List.length") {
+    val list1 = List(1, 2, 3, 4, 5)
+    val list2 = List(1)
+    val list3 = List(1, 2)
+    assert(List.length(list1) === 5)
+    assert(List.length(list2) === 1)
+    assert(List.length(list3) === 2)
+    assert(List.length(Nil) === 0)
+  }
 }
