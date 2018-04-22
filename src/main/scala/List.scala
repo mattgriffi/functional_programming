@@ -82,7 +82,6 @@ object List {
   @annotation.tailrec
   def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = as match {
     case Nil => z
-    case Cons(h, Nil) => f(z, h)
     case Cons(h, t) => foldLeft(t, f(z, h))(f)
   }
 
@@ -104,5 +103,10 @@ object List {
   /* Exercise 3.12 page 41 */
   def reverse[A](as: List[A]): List[A] = {
     foldLeft(as, Nil: List[A])((b, a) => Cons(a, b))
+  }
+
+  /* Exercise 3.13 page 41 */
+  def foldRight2[A, B](as: List[A], z: B)(f: (A, B) => B): B = {
+    foldLeft(reverse(as), z)((b, a) => f(a, b))
   }
 }
