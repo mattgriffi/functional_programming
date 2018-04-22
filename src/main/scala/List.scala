@@ -37,4 +37,12 @@ object List {
       if (n > 0) drop(t, n - 1)
       else as
   }
+
+  /* Exercise 3.5 page 36 */
+  def dropWhile[A](as: List[A], p: A => Boolean): List[A] = as match {
+    case Nil => Nil
+    case Cons(h, t) =>
+      if (p(h)) dropWhile(t, p)
+      else as
+  }
 }
