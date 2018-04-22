@@ -41,10 +41,10 @@ object List {
 
   /* Exercise 3.5 page 36 */
   @annotation.tailrec
-  def dropWhile[A](as: List[A], p: A => Boolean): List[A] = as match {
+  def dropWhile[A](as: List[A])(p: A => Boolean): List[A] = as match {
     case Nil => Nil
     case Cons(h, t) =>
-      if (p(h)) dropWhile(t, p)
+      if (p(h)) dropWhile(t)(p)
       else as
   }
 

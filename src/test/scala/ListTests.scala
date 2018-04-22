@@ -31,12 +31,12 @@ class ListTests extends FunSuite {
 
   test("List.dropWhile") {
     val list1 = List(1, 2, 3, 4, 5)
-    assert(List.dropWhile(list1, (a: Int) => a < 3) === List(3, 4, 5))
-    assert(List.dropWhile(Nil, (a: Int) => a < 3) === Nil)
-    assert(List.dropWhile(list1, (a: Int) => a > 0) === Nil)
-    assert(List.dropWhile(list1, (a: Int) => a < 5) === List(5))
-    assert(List.dropWhile(list1, (a: Int) => a < 2) === List(2, 3, 4, 5))
-    assert(List.dropWhile(list1, (a: Int) => a < 1) === list1)
+    assert(List.dropWhile(list1)(a => a < 3) === List(3, 4, 5))
+    assert(List.dropWhile(Nil)((a: Int) => a < 3) === Nil)
+    assert(List.dropWhile(list1)(a => a > 0) === Nil)
+    assert(List.dropWhile(list1)(a => a < 5) === List(5))
+    assert(List.dropWhile(list1)(a => a < 2) === List(2, 3, 4, 5))
+    assert(List.dropWhile(list1)(a => a < 1) === list1)
   }
 
   test("List.init") {
