@@ -14,7 +14,7 @@ object List {
     case Cons(h, t) => h * product(t)
   }
 
-  def apply[A](a: A*): List[A] =
-    if (a.isEmpty) Nil
-    else Cons(a.head, apply(a.tail: _*))
+  def apply[A](as: A*): List[A] =
+    if (as.isEmpty) Nil
+    else Cons(as.head, apply(as.tail: _*))
 }
