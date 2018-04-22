@@ -75,6 +75,29 @@ object List {
 
   /* Exercise 3.9 page 40 */
   def length[A](as: List[A]): Int = {
-    foldRight(as, 0)((_, x) => x + 1)
+    foldRight(as, 0)((_, acc) => acc + 1)
+  }
+
+  /* Exercise 3.10 page 40 */
+  @annotation.tailrec
+  def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = as match {
+    case Nil => z
+    case Cons(h, Nil) => f(z, h)
+    case Cons(h, t) => foldLeft(t, f(z, h))(f)
+  }
+
+  /* Exercise 3.11 page 41 */
+  def sum3(is: List[Int]): Int = {
+    foldLeft(is, 0)(_ + _)
+  }
+
+  /* Exercise 3.11 page 41 */
+  def product3(ds: List[Double]): Double = {
+    foldLeft(ds, 1.0)(_ * _)
+  }
+
+  /* Exercise 3.11 page 41 */
+  def length2[A](as: List[A]): Int = {
+    foldLeft(as, 0)((acc, _) => acc + 1)
   }
 }

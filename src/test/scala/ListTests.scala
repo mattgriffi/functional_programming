@@ -64,4 +64,22 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.length(list1) === 1)
     assert(List.length(Nil) === 0)
   }
+
+  test("List.length2") {
+    assert(List.length2(list5) === 5)
+    assert(List.length2(list4) === 4)
+    assert(List.length2(list3) === 3)
+    assert(List.length2(list2) === 2)
+    assert(List.length2(list1) === 1)
+    assert(List.length2(Nil) === 0)
+  }
+
+  test("List.sum3") {
+    assert(List.sum3(list5) === 1 + 2 + 3 + 4 + 5)
+    assert(List.sum3(list4) === 1 + 2 + 3 + 4)
+    assert(List.sum3(list3) === 1 + 2 + 3)
+    assert(List.sum3(list2) === 1 + 2)
+    assert(List.sum3(list1) === 1)
+    assert(List.sum3(Nil) === 0)
+  }
 }
