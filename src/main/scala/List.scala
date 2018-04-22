@@ -29,4 +29,12 @@ object List {
     case Nil => List(a)
     case Cons(_, t) => Cons(a, t)
   }
+
+  /* Exercise 3.4 page 36 */
+  def drop[A](as: List[A], n: Int): List[A] = as match {
+    case Nil => Nil
+    case Cons(_, t) =>
+      if (n > 0) drop(t, n - 1)
+      else as
+  }
 }

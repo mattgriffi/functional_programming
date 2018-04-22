@@ -17,4 +17,15 @@ class ListTests extends FunSuite {
     assert(List.setHead(list1, -1) === list2)
     assert(List.setHead(Nil, 5) === List(5))
   }
+
+  test("List.drop") {
+    val list1 = List(1, 2, 3, 4, 5)
+    assert(List.drop(Nil, 2) === Nil)
+    assert(List.drop(list1, 50) === Nil)
+    assert(List.drop(list1, 0) === list1)
+    assert(List.drop(list1, 1) === List(2, 3, 4, 5))
+    assert(List.drop(list1, 5) === Nil)
+    assert(List.drop(list1, 3) === List(4, 5))
+    assert(List.drop(list1, -2) === list1)
+  }
 }
