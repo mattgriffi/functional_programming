@@ -82,4 +82,13 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.sum3(list1) === 1)
     assert(List.sum3(Nil) === 0)
   }
+
+  test("List.reverse") {
+    assert(List.reverse(list5) === List(5, 4, 3, 2, 1))
+    assert(List.reverse(list4) === List(4, 3, 2, 1))
+    assert(List.reverse(list3) === List(3, 2, 1))
+    assert(List.reverse(list2) === List(2, 1))
+    assert(List.reverse(list1) === List(1))
+    assert(List.reverse(Nil) === Nil)
+  }
 }
