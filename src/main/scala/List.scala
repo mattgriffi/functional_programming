@@ -122,11 +122,16 @@ object List {
 
   /* Exercise 3.16 page 42 */
   def add1(is: List[Int]): List[Int] = {
-    foldRight2(is, Nil: List[Int])((h, t) => Cons(h + 1, t))
+    map(is)(_ + 1)
   }
 
   /* Exercise 3.17 page 42 */
   def doubleToString(ds: List[Double]): List[String] = {
-    foldRight2(ds, Nil: List[String])((h, t) => Cons(h.toString, t))
+    map(ds)(_.toString)
+  }
+
+  /* Exercise 3.18 page 42 */
+  def map[A, B](as: List[A])(f: (A => B)): List[B] = {
+    foldRight2(as, Nil: List[B])((h, t) => Cons(f(h), t))
   }
 }
