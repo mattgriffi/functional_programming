@@ -114,4 +114,9 @@ object List {
   def append2[A](a1: List[A])(a2: List[A]): List[A] =  {
     foldRight2(a1, a2)((a, b) => Cons(a, b))
   }
+
+  /* Exercise 3.15 page 41 */
+  def concat[A](as: List[List[A]]): List[A] = {
+    foldRight2(as, Nil: List[A])(append2(_)(_))
+  }
 }

@@ -98,4 +98,10 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.append2(list2)(Nil) === List(1, 2))
     assert(List.append2(Nil)(list2) === List(1, 2))
   }
+
+  test("List.flatten") {
+    assert(List.concat(List(list1, list2, list3)) === List(1, 1, 2, 1, 2, 3))
+    assert(List.concat(List(list5)) === list5)
+    assert(List.concat(List(Nil)) === Nil)
+  }
 }
