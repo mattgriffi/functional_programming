@@ -13,7 +13,7 @@ class TreeTests extends FunSuite with BeforeAndAfter{
             Leaf(1),
             Leaf(3)),
           Branch(
-            Leaf(4),
+            Leaf(10),
             Leaf(5))),
         Leaf(7)),
       Leaf(8))
@@ -21,5 +21,9 @@ class TreeTests extends FunSuite with BeforeAndAfter{
 
   test("Tree.size") {
     assert(Tree.size(root) === 11)
+  }
+
+  test("Tree.maximum") {
+    assert(Tree.maximum(root) === 10)
   }
 }
