@@ -151,9 +151,14 @@ object List {
   }
 
   /* Exercise 3.22 page 43 */
-  def addPairwise(i1: List[Int], i2: List[Int]): List[Int] = (i1, i2) match {
+  def addPairwise(i1: List[Int], i2: List[Int]): List[Int] = {
+    zipWith(i1, i2)(_ + _)
+  }
+
+  /* Exercise 3.23 page 43 */
+  def zipWith[A, B](a1: List[A], a2: List[A])(f: (A, A) => B): List[B] = (a1, a2) match {
     case (Nil, _) => Nil
     case (_, Nil) => Nil
-    case (Cons(h1, t1), Cons(h2, t2)) => Cons(h1 + h2, addPairwise(t1, t2))
+    case (Cons(h1, t1), Cons(h2, t2)) => Cons(f(h1, h2), zipWith(t1, t2)(f))
   }
 }
