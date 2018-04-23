@@ -91,4 +91,11 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.reverse(list1) === List(1))
     assert(List.reverse(Nil) === Nil)
   }
+
+  test("List.append2") {
+    assert(List.append2(list5)(list5) === List(1, 2, 3, 4, 5, 1, 2, 3, 4, 5))
+    assert(List.append2(list5)(list3) === List(1, 2, 3, 4, 5, 1, 2, 3))
+    assert(List.append2(list2)(Nil) === List(1, 2))
+    assert(List.append2(Nil)(list2) === List(1, 2))
+  }
 }
