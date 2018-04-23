@@ -131,4 +131,12 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.filter2(list5)(_ % 2 == 1) === List(1, 3, 5))
     assert(List.filter2(Nil: List[Int])(_ % 2 == 1) === Nil)
   }
+
+  test("List.addPairwise") {
+    assert(List.addPairwise(list5, list5) === List(2, 4, 6, 8, 10))
+    assert(List.addPairwise(list5, list3) === List(2, 4, 6))
+    assert(List.addPairwise(list3, list5) === List(2, 4, 6))
+    assert(List.addPairwise(Nil, list5) === Nil)
+    assert(List.addPairwise(list5, Nil) === Nil)
+  }
 }

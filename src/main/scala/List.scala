@@ -149,4 +149,11 @@ object List {
   def filter2[A](as: List[A])(p: A => Boolean): List[A] = {
     flatMap(as)(a => if (p(a)) List(a) else Nil)
   }
+
+  /* Exercise 3.22 page 43 */
+  def addPairwise(i1: List[Int], i2: List[Int]): List[Int] = (i1, i2) match {
+    case (Nil, _) => Nil
+    case (_, Nil) => Nil
+    case (Cons(h1, t1), Cons(h2, t2)) => Cons(h1 + h2, addPairwise(t1, t2))
+  }
 }
