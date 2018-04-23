@@ -1,4 +1,5 @@
 import org.scalatest.{BeforeAndAfter, FunSuite}
+import datastructures.{List, Nil}
 
 class ListTests extends FunSuite with BeforeAndAfter {
   
