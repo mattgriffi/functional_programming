@@ -139,4 +139,16 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.addPairwise(Nil, list5) === Nil)
     assert(List.addPairwise(list5, Nil) === Nil)
   }
+
+  test("List.hasSubsequence") {
+    assert(List.hasSubsequence(list5, List(1, 2, 3)) === true)
+    assert(List.hasSubsequence(list5, list5) === true)
+    assert(List.hasSubsequence(list5, List(1)) === true)
+    assert(List.hasSubsequence(list5, List(2, 3)) === true)
+    assert(List.hasSubsequence(list5, List(2, 3, 4)) === true)
+    assert(List.hasSubsequence(list5, List(1, 3)) === false)
+    assert(List.hasSubsequence(list5, List(6)) === false)
+    assert(List.hasSubsequence(list1, List(1)) === true)
+    assert(List.hasSubsequence(list1, Nil) === true)
+  }
 }

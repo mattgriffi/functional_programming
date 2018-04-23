@@ -161,4 +161,27 @@ object List {
     case (_, Nil) => Nil
     case (Cons(h1, t1), Cons(h2, t2)) => Cons(f(h1, h2), zipWith(t1, t2)(f))
   }
+
+  /* Exercise 3.24 page 44 */
+  @annotation.tailrec
+  def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = sub match {
+    // Nil is a subsequence of all subsequences
+    case Nil => true
+    case Cons(h, _) =>
+      // Drop prefix until the first element matches sub
+      val shorter = dropWhile(sup)(_ != h)
+      // Compare elements
+      val zipped = zipWith(sub, shorter)(_ == _)
+      // Check that there were enough elements left in sup
+      if (length2(zipped) != length2(sub)) false
+      else {
+        // Check for subsequence
+        val good = foldLeft(zipped, true)(_ & _)
+        if (good) true
+        // If they don't match, drop first element of sup and try again
+        else sup match {
+          case Cons(_, t) => hasSubsequence(t, sub)
+        }
+      }
+  }
 }
