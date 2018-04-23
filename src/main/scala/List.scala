@@ -121,14 +121,12 @@ object List {
   }
 
   /* Exercise 3.16 page 42 */
-  def add1(is: List[Int]): List[Int] = is match {
-    case Nil => Nil
-    case Cons(h, t) => Cons(h + 1, add1(t))
+  def add1(is: List[Int]): List[Int] = {
+    foldRight2(is, Nil: List[Int])((h, t) => Cons(h + 1, t))
   }
 
   /* Exercise 3.17 page 42 */
-  def doubleToString(ds: List[Double]): List[String] = ds match {
-    case Nil => Nil
-    case Cons(h, t) => Cons(h.toString, doubleToString(t))
+  def doubleToString(ds: List[Double]): List[String] = {
+    foldRight2(ds, Nil: List[String])((h, t) => Cons(h.toString, t))
   }
 }
