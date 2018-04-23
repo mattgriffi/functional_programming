@@ -26,4 +26,8 @@ class TreeTests extends FunSuite with BeforeAndAfter{
   test("Tree.maximum") {
     assert(Tree.maximum(root) === 10)
   }
+
+  test("Tree.depth") {
+    assert(Tree.depth(root) === 4)
+  }
 }
