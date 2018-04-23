@@ -104,4 +104,15 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.concat(List(list5)) === list5)
     assert(List.concat(List(Nil)) === Nil)
   }
+
+  test("List.add1") {
+    assert(List.add1(list5) === List(2, 3, 4, 5, 6))
+    assert(List.add1(Nil) === Nil)
+  }
+
+  test("List.doubleToString") {
+    val list5 = List(1.0, 2.0, 3.0, 4.0, 5.0)
+    assert(List.doubleToString(list5) === List("1.0", "2.0", "3.0", "4.0", "5.0"))
+    assert(List.doubleToString(Nil) === Nil)
+  }
 }

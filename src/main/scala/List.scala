@@ -119,4 +119,16 @@ object List {
   def concat[A](as: List[List[A]]): List[A] = {
     foldRight2(as, Nil: List[A])(append2(_)(_))
   }
+
+  /* Exercise 3.16 page 42 */
+  def add1(is: List[Int]): List[Int] = is match {
+    case Nil => Nil
+    case Cons(h, t) => Cons(h + 1, add1(t))
+  }
+
+  /* Exercise 3.17 page 42 */
+  def doubleToString(ds: List[Double]): List[String] = ds match {
+    case Nil => Nil
+    case Cons(h, t) => Cons(h.toString, doubleToString(t))
+  }
 }
