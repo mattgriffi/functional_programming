@@ -30,4 +30,31 @@ class TreeTests extends FunSuite with BeforeAndAfter{
   test("Tree.depth") {
     assert(Tree.depth(root) === 4)
   }
+
+  test("Tree.map") {
+    val plus1 = Branch(
+      Branch(
+        Branch(
+          Branch(
+            Leaf(2),
+            Leaf(4)),
+          Branch(
+            Leaf(11),
+            Leaf(6))),
+        Leaf(8)),
+      Leaf(9))
+    val string = Branch(
+      Branch(
+        Branch(
+          Branch(
+            Leaf("1"),
+            Leaf("3")),
+          Branch(
+            Leaf("10"),
+            Leaf("5"))),
+        Leaf("7")),
+      Leaf("8"))
+    assert(Tree.map(root)(_ + 1) === plus1)
+    assert(Tree.map(root)(_.toString) === string)
+  }
 }
