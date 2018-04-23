@@ -131,7 +131,12 @@ object List {
   }
 
   /* Exercise 3.18 page 42 */
-  def map[A, B](as: List[A])(f: (A => B)): List[B] = {
+  def map[A, B](as: List[A])(f: A => B): List[B] = {
     foldRight2(as, Nil: List[B])((h, t) => Cons(f(h), t))
+  }
+
+  /* Exercise 3.19 page 42 */
+  def filter[A](as: List[A])(p: A => Boolean): List[A] = {
+    foldRight2(as, Nil: List[A])((h, t) => if (p(h)) Cons(h, t) else t)
   }
 }

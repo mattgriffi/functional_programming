@@ -115,4 +115,10 @@ class ListTests extends FunSuite with BeforeAndAfter {
     assert(List.doubleToString(list5) === List("1.0", "2.0", "3.0", "4.0", "5.0"))
     assert(List.doubleToString(Nil) === Nil)
   }
+
+  test("List.filter") {
+    assert(List.filter(list5)(_ % 2 == 0) === List(2, 4))
+    assert(List.filter(list5)(_ % 2 == 1) === List(1, 3, 5))
+    assert(List.filter(Nil: List[Int])(_ % 2 == 1) === Nil)
+  }
 }
