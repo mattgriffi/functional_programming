@@ -38,12 +38,12 @@ object Tree {
 
   /* Exercise 3.29 page 47 */
   def size2[A](t: Tree[A]): Int = {
-    fold(t)(_ => 1)((l, r) => 1 + l + r)
+    fold(t)(_ => 1)(1 + _ + _)
   }
 
   /* Exercise 3.29 page 47 */
   def maximum2(t: Tree[Int]): Int = {
-    fold(t)(x => x)((l, r) => l max r)
+    fold(t)(x => x)(_ max _)
   }
 
   /* Exercise 3.29 page 47 */
@@ -53,6 +53,6 @@ object Tree {
 
   /* Exercise 3.29 page 47 */
   def map2[A, B](t: Tree[A])(f: A => B): Tree[B] = {
-    fold(t)(x => Leaf(f(x)): Tree[B])((l, r) => Branch(l, r))
+    fold(t)(x => Leaf(f(x)): Tree[B])(Branch(_, _))
   }
 }
