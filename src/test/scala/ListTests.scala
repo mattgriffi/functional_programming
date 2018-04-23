@@ -125,4 +125,10 @@ class ListTests extends FunSuite with BeforeAndAfter {
   test("List.flatMap") {
     assert(List.flatMap(list5)(i => List(i, i)) === List(1, 1, 2, 2, 3, 3, 4, 4, 5, 5))
   }
+
+  test("List.filter2") {
+    assert(List.filter2(list5)(_ % 2 == 0) === List(2, 4))
+    assert(List.filter2(list5)(_ % 2 == 1) === List(1, 3, 5))
+    assert(List.filter2(Nil: List[Int])(_ % 2 == 1) === Nil)
+  }
 }
