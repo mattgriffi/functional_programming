@@ -21,14 +21,17 @@ class TreeTests extends FunSuite with BeforeAndAfter{
 
   test("Tree.size") {
     assert(Tree.size(root) === 11)
+    assert(Tree.size2(root) === 11)
   }
 
   test("Tree.maximum") {
     assert(Tree.maximum(root) === 10)
+    assert(Tree.maximum2(root) === 10)
   }
 
   test("Tree.depth") {
     assert(Tree.depth(root) === 4)
+    assert(Tree.depth2(root) === 4)
   }
 
   test("Tree.map") {
@@ -55,6 +58,8 @@ class TreeTests extends FunSuite with BeforeAndAfter{
         Leaf("7")),
       Leaf("8"))
     assert(Tree.map(root)(_ + 1) === plus1)
+    assert(Tree.map2(root)(_ + 1) === plus1)
     assert(Tree.map(root)(_.toString) === string)
+    assert(Tree.map2(root)(_.toString) === string)
   }
 }
